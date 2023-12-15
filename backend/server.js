@@ -1,15 +1,16 @@
 const express = require('express');
 const dotenv = require('dotenv');
-
 const { chats } = require('./data/data');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 const chatRoutes = require('./routes/chatRoutes');
+const ventRoutes = require('./routes/ventRoutes');
 //const colors=require('colors')
 const connectDB = require('./config/db');
 const colors = require('colors');
 const { notFound, errorHandler } = require('./middlewares/errorMiddleware');
 const app = express();
+CLIENT_URL = "http://localhost:3000"
 dotenv.config();
 connectDB();
 app.use(cors());
@@ -22,6 +23,7 @@ app.use('/api/user', userRoutes)
 
 app.use('/api/chat', chatRoutes)
 
+app.use('/api/vent', ventRoutes)
 
 //error handler message 
 app.use(notFound)
