@@ -5,6 +5,7 @@ const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 const chatRoutes = require('./routes/chatRoutes');
 const ventRoutes = require('./routes/ventRoutes');
+const contactRoute = require("./routes/contactRoute");
 //const colors=require('colors')
 const connectDB = require('./config/db');
 const colors = require('colors');
@@ -24,6 +25,7 @@ app.use('/api/user', userRoutes)
 app.use('/api/chat', chatRoutes)
 
 app.use('/api/vent', ventRoutes)
+app.use('/api/contact', contactRoute)
 
 //error handler message 
 app.use(notFound)

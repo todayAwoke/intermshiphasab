@@ -49,7 +49,7 @@ const registerUser = async (req, res) => {
 
 const authUser = async (req, res) => {
     const { name, password } = req.body;
-    console.log(name, password)
+    // console.log(name, password)
     const user = await User.findOne({ name });
 
     if (user && (await user.matchPassword(password))) {
